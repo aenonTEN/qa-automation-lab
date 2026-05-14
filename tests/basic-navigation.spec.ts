@@ -1,9 +1,11 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 
 test('navigate to url', async ({page}) => {
 
-  await page.goto('https://danube-web.shop');
-  await page.getByRole('button', {name: 'Sign up'}).click();
-
+  await page.goto('https://saucedemo.com/');
+  await page.getByRole('textbox', {name: 'Username'}).fill('standard_user');
+  await page.getByRole('textbox', {name: 'Password'}).fill('secret_sauce');
+  await page.getByRole('button', {name: 'Login'}).click();
+  
 })
