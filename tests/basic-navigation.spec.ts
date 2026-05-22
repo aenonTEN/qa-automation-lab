@@ -19,19 +19,19 @@ test.beforeEach('navigate to url', async ({page}) => {
       await page.locator('.shopping_cart_link').click();
 
       
-      // await page.getByText('Sauce Backpack')
+      await page.getByText('Sauce Backpack')
 
       
-      // await page.locator('data-test=".shopping_cart_link"]');
+      await page.locator('data-test=".shopping_cart_link"]');
       
-      // if(await cart.isVisible()){
+      if(await cart.isVisible()){
       
-      //   await cart.click();
-      // }else{
+        await cart.click();
+      }else{
 
-      //   await page.goto('https://saucedemo.com/cart.html/')
-     // }
-    // await page.locator('.shopping_cart_link').click();
+        await page.goto('https://saucedemo.com/cart.html/')
+     }
+    await page.locator('.shopping_cart_link').click();
     
   });
   
