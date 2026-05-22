@@ -7,32 +7,30 @@ test.beforeEach('navigate to url', async ({page}) => {
   await page.getByRole('textbox', {name: 'Username'}).fill('standard_user');
   await page.getByRole('textbox', {name: 'Password'}).fill('secret_sauce');
   await page.getByRole('button', {name: 'Login'}).click();
+  // await page.goto('https://saucedemo.com/inventory.html/');
+
 
 });
 
   test('verify add to cart', async ({page}) => {
 
-    const allItems = await page.locator('.inventory_list').all();
+      await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+      // await page.getByRole('link', {name: '1'}).click();
+      await page.locator('.shopping_cart_link').click();
+
       
-      for(const item of allItems){
+      // await page.getByText('Sauce Backpack')
 
-        const itemText = item.innerText();
-        
-        if(itemText === 'Sauce Labs Backpack'){
-
-          await item.getByRole('button', {name: 'Add to cart'}).click();
-
-        };
-      };
-      const cart = await page.locator('data-test=".shopping_cart_link"]');
       
-      if(await cart.isVisible()){
+      // await page.locator('data-test=".shopping_cart_link"]');
       
-        await cart.click();
-      }else{
+      // if(await cart.isVisible()){
+      
+      //   await cart.click();
+      // }else{
 
-        await page.goto('https://saucedemo.com/cart.html/')
-      }
+      //   await page.goto('https://saucedemo.com/cart.html/')
+     // }
     // await page.locator('.shopping_cart_link').click();
     
   });
